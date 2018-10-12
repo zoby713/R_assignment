@@ -5,7 +5,7 @@ date: "October 12, 2018"
 output: html_document
 ---
 
-#environment setting
+#Environment setting
 ```{r}
 if (!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
@@ -23,7 +23,7 @@ if (!require("dplyr")) install.packages("dplyr") # install dplyr if it's not alr
 library(dplyr)
 ```
 
-#Reading the data from the git hub repository 
+Reading the data from the git hub repository 
 ```{r}
 fang_et_al <- read.table("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2018/master/assignments/UNIX_Assignment/fang_et_al_genotypes.txt", sep = "\t",header = T)
 snp_position <- read.table("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2018/master/assignments/UNIX_Assignment/snp_position.txt",sep = "\t", fill = TRUE, header = T)
@@ -32,20 +32,23 @@ snp_position <- read.table("https://raw.githubusercontent.com/EEOB-BioData/BCB54
 
 
 #############Part I#############
-##some of the results:
+
+some of the results:
 
 [1] 2782  986 
-#2782 rows and 986 columns
-[1] 983  15 
-#983 rows and 13 columns
+2782 rows and 986 columns;
 
-#both files are data.frame
+[1] 983  15 
+983 rows and 13 columns;
+
+both files are data.frame;
 
 [1] "TRIPS" "ZDIPL" "ZLUXR" "ZMHUE" "ZMMIL" "ZMMLR" "ZMMMR" "ZMPBA" "ZMPIL" "ZMPJA" "ZMXCH" "ZMXCP" "ZMXIL" "ZMXNO" "ZMXNT" "ZPERR"
-#16 levels of groups
+16 levels of groups;
+
 [1] "1"        "10"       "2"        "3"        "4"        "5"        "6"        "7"        "8"        "9"        "multiple"
 [12] "unknown" 
-#12 levels of chromosomes
+12 levels of chromosomes
 ...
 
 #Data inspection
