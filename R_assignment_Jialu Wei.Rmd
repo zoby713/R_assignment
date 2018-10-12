@@ -83,7 +83,8 @@ maize <- merge(snp_infor,geno_maize,by.x = "SNP_ID",by.y = "row.names",all = TRU
 maize <- maize[-(984:986),]
 teosinte <- merge(snp_infor,geno_teosinte,by.x = "SNP_ID",by.y = "row.names",all = TRUE)
 teosinte <- teosinte[-(984:986),]
-
+maize$Position <- as.numeric(as.character(maize$Position))
+teosinte$Position <- as.numeric(as.character(teosinte$Position))
 #generate files for maize
 ##position ascending
 for (i in 1:10){
