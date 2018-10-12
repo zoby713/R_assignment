@@ -96,6 +96,7 @@ for (i in 1:10){
   maize2 <- maize
   maize2[] <- lapply(maize[], as.character)
   maize2[maize2 == "?/?"] <- "-/-"
+  maize2[,3] <- as.numeric(maize2[,3])
   maize_chr <- filter(maize2, Chromosome == i ) %>% arrange(desc(Position))
   write.table(maize_chr,paste("maize_chr",i,"_desc.txt",sep=""))
 }
@@ -111,6 +112,7 @@ for (i in 1:10){
   teosinte2 <- teosinte
   teosinte2[] <- lapply(teosinte[],as.character) 
   teosinte2[teosinte2 == "?/?"] <- "-/-"
+  teosinte2[,3] <- as.numeric(teosinte2[,3])
   teosinte_chr <- filter(teosinte2, Chromosome == i ) %>% arrange(desc(Position))
   write.table(teosinte_chr,paste("teosinte_chr",i,"_desc.txt",sep=""))
 }
@@ -193,5 +195,6 @@ teosinte_own_melt$status <- (teosinte_own_melt$value=="A/A"|teosinte_own_melt$va
 teosinte_own_counts<-ddply(teosinte_own_melt,c("Chromosome"),summarise,total_homozygous=sum(status,na.rm=TRUE),total_heterozygous=sum(!status,na.rm = TRUE), total_NA=sum(is.na(status)))
 teosinte_own_counts_melt<-melt(teosinte_own_counts,measure.vars = c("total_homozygous","total_heterozygous","total_NA"))
 ggplot(teosinte_own_counts_melt,aes(x=Chromosome,y=value,fill=variable))+geom_bar(stat="identity")+ggtitle("Teosinte")
+
 
 ```
